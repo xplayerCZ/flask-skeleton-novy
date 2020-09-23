@@ -1,8 +1,8 @@
 import re
 
 from flask_wtf import Form
-from wtforms.fields import BooleanField, TextField, PasswordField, DateTimeField, IntegerField,SelectField
-from wtforms.validators import EqualTo, Email, InputRequired, Length
+from wtforms.fields import BooleanField, TextField, PasswordField, DateTimeField, IntegerField, SelectField, FloatField
+from wtforms.validators import EqualTo, Email, InputRequired, Length, NumberRange
 
 from ..data.models import User, LogUser
 from ..fields import Predicate
@@ -43,4 +43,15 @@ class secti(Form):
     hodnota2 = IntegerField("vlozHodnotu2", validators=[InputRequired(message="vyzadovano")])
 class masoform(Form):
     typ=SelectField('Typ', choices=[(1, "Hovezi"), (2, "Veprove")], default=2)
+
+class validateForm(Form):
+    a = FloatField("Strana a:", validators=
+        [NumberRange(min=1, message="Hodnota musi byt vyssi nez nula!"),
+        InputRequired(message="Input a is missing!")])
+
+    b = FloatField("Strana b:", validators=
+        [NumberRange(min=1, message="Hodnota musi byt vyssi nez nula!"),
+        InputRequired(message="Input b is missing!")])
+
+    obrazec = SelectField("Obrazec: ", choices=[(1, "Ctverec a"), (2, "Ctverec b"), (3, "Ctverec c")])
 
