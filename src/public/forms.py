@@ -53,5 +53,5 @@ class validateForm(Form):
         [NumberRange(min=1, message="Hodnota musi byt vyssi nez nula!"),
         InputRequired(message="Input b is missing!")])
 
-    obrazec = SelectField("Obrazec: ", choices=[(1, "Ctverec a"), (2, "Ctverec b"), (3, "Ctverec c")])
+    obrazec = SelectField("Obrazec: ", choices=[("1", "Ctverec"), ("2", "Obdelnik"), ("3", "Trojuhelnik")])
 
