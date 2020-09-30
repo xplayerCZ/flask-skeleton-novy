@@ -50,3 +50,10 @@ def validate():
     return render_template("public/loginTemplate.tmpl", form=form)
 
 
+@blueprint.route("/simple_chart")
+def chart():
+    legend = 'Monthly Data'
+    labels = ["January", "February", "March", "April", "May", "June", "July", "August"]
+    values = [10, 9, 8, 7, 6, 4, 7, 8]
+    return render_template('public/chart.tmpl', values=values, labels=labels, legend=legend)
+
